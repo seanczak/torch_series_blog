@@ -1,7 +1,7 @@
-repository: seanczak/ts_blog
+repository: seanczak/torch_series_blog
 output: web
-topnav_title: ts_blog
-site_title: ts_blog
+topnav_title: Torch Series Analysis
+site_title: Torch Series Analysis
 company_name: Fronczak-Janoos
 description: Time Series Analysis in PyTorch
 # Set to false to disable KaTeX math

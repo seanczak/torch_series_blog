@@ -2,7 +2,12 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/seanczak/ts_blog
+      external_url: https://github.com/seanczak/torch_series_blog
+    - title: Sean Fronczak
+      external url: https://github.com/seanczak/
+    - title: Firdaus Janoos
+      external url: https://github.com/fjanoos/
+
 
 #Topnav dropdowns
 topnav_dropdowns:
