@@ -10,8 +10,11 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Sean's
+      title: Hello function
       url: /hello
+    - output: web,pdf
+      title: Title
+      url: /dealing_with_datetime
     - output: web,pdf
       title: practice doc
       url: /practice

@@ -1,7 +1,8 @@
 {
   "torch_series_blog": {
     "Overview": "/",
-    "Sean's": "/hello",
+    "Hello function": "/hello",
+    "Title": "/dealing_with_datetime",
     "practice doc": "/practice"
   }
 }
