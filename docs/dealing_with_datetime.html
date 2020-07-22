@@ -37,7 +37,7 @@ description: "Opinionated wrangling of datetime objects"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Opinion:-&quot;Time-since-epoch&quot;-vs-&quot;Datetime&quot;">Opinion: "Time since epoch" vs "Datetime"<a class="anchor-link" href="#Opinion:-&quot;Time-since-epoch&quot;-vs-&quot;Datetime&quot;"> </a></h1><p>Before getting into the code, I would like to mention that, in my experience, a reasonable first step in any time series analysis project is to immediately convert everything into seconds (or milli-/microseconds) since epoch. (Note that by definition, epoch is: <code>00:00:00 UTC Jan 1, 1970</code>.) There are several reasons for this but the ones that I find most pertinent are as follows:</p>
+<h2 id="Opinion:-&quot;Time-since-epoch&quot;-vs-&quot;Datetime&quot;">Opinion: "Time since epoch" vs "Datetime"<a class="anchor-link" href="#Opinion:-&quot;Time-since-epoch&quot;-vs-&quot;Datetime&quot;"> </a></h2><p>Before getting into the code, I would like to mention that, in my experience, a reasonable first step in any time series analysis project is to immediately convert everything into seconds (or milli-/microseconds) since epoch. (Note that by definition, epoch is: <code>00:00:00 UTC Jan 1, 1970</code>.) There are several reasons for this but the ones that I find most pertinent are as follows:</p>
 <ul>
 <li>an <code>int</code> object is much smaller than a <code>datetime</code> or a <code>str</code> object. This leads to all sorts of benefits such as smaller storage footprint, faster querying, simpler computation, etc.</li>
 <li>epoch time is timezone independent by its nature. There is no need to ever track down a missing bit of timezone information because it's unclear if it's omission implies UTC or simply a lapse of documentation</li>
@@ -50,14 +50,14 @@ description: "Opinionated wrangling of datetime objects"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Working-with-single-timestamps">Working with single timestamps<a class="anchor-link" href="#Working-with-single-timestamps"> </a></h1><p>The following will work with converting back and forth between epoch time and datetime for single timestamps.</p>
+<h2 id="Working-with-single-timestamps">Working with single timestamps<a class="anchor-link" href="#Working-with-single-timestamps"> </a></h2><p>The following will work with converting back and forth between epoch time and datetime for single timestamps.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Initiating-a-timezone-aware-datetime">Initiating a timezone-aware <code>datetime</code><a class="anchor-link" href="#Initiating-a-timezone-aware-datetime"> </a></h2><p>Despite the above reasons, my human brain still understands datetimes better and, thus, when initiating a timestamp or datetime object (say, for the sake of toy demonstrations for a blog post), I typically start with a datetime representation. However, if I use a datetime object, it is important to make sure that it is "timezone-aware." One of the more ...ahem, enjoyable... aspects of working with datetimes in python is that there are multiple packages to choose from and they all have their own strengths, limitations, and strange nuisances to watch out for. For example, I use <code>datetime</code> as the main workhorse of my analysis but I use <code>pytz</code> to handle the timezone information of those <code>datetime</code> objects.  By way of example, let's initiate an unaware datetime object for <code>9/13/2019</code> at <code>8:10:25am</code>.</p>
+<h3 id="Initiating-a-timezone-aware-datetime">Initiating a timezone-aware <code>datetime</code><a class="anchor-link" href="#Initiating-a-timezone-aware-datetime"> </a></h3><p>Despite the above reasons, my human brain still understands datetimes better and, thus, when initiating a timestamp or datetime object (say, for the sake of toy demonstrations for a blog post), I typically start with a datetime representation. However, if I use a datetime object, it is important to make sure that it is "timezone-aware." One of the more ...ahem, enjoyable... aspects of working with datetimes in python is that there are multiple packages to choose from and they all have their own strengths, limitations, and strange nuisances to watch out for. For example, I use <code>datetime</code> as the main workhorse of my analysis but I use <code>pytz</code> to handle the timezone information of those <code>datetime</code> objects.  By way of example, let's initiate an unaware datetime object for <code>9/13/2019</code> at <code>8:10:25am</code>.</p>
 
 </div>
 </div>
@@ -232,7 +232,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Converting-a-datetime-object-to-epoch-time">Converting a datetime object to epoch time<a class="anchor-link" href="#Converting-a-datetime-object-to-epoch-time"> </a></h2><p>In order to convert a <code>datetime</code> object to epoch time. the <code>timestamp</code> method can be used along with the built in <code>int()</code> python function. However, this will always give the results in terms of seconds so if you're interested in milliseconds, simply multiply by 1000.  The only "gotcha" to mention here is that you need to provide a tz-aware <code>datetime</code> in order to ensure that the proper time is referenced.</p>
+<h3 id="Converting-a-datetime-object-to-epoch-time">Converting a datetime object to epoch time<a class="anchor-link" href="#Converting-a-datetime-object-to-epoch-time"> </a></h3><p>In order to convert a <code>datetime</code> object to epoch time. the <code>timestamp</code> method can be used along with the built in <code>int()</code> python function. However, this will always give the results in terms of seconds so if you're interested in milliseconds, simply multiply by 1000.  The only "gotcha" to mention here is that you need to provide a tz-aware <code>datetime</code> in order to ensure that the proper time is referenced.</p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Converting-Epoch-time-back-to-Datetime">Converting Epoch time back to Datetime<a class="anchor-link" href="#Converting-Epoch-time-back-to-Datetime"> </a></h2><p>Again, the name of the game is making the datetime object tz-aware. Note that this is a naive timestamp but it has assumed the timezone to be the local one... so this is kind of dangerous since it gives the local time the timestamp refers to but doesn't tell you that it's doing that.</p>
+<h3 id="Converting-Epoch-time-back-to-Datetime">Converting Epoch time back to Datetime<a class="anchor-link" href="#Converting-Epoch-time-back-to-Datetime"> </a></h3><p>Again, the name of the game is making the datetime object tz-aware. Note that this is a naive timestamp but it has assumed the timezone to be the local one... so this is kind of dangerous since it gives the local time the timestamp refers to but doesn't tell you that it's doing that.</p>
 
 </div>
 </div>
@@ -322,7 +322,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Converting-tz-information">Converting tz information<a class="anchor-link" href="#Converting-tz-information"> </a></h2><p>I suggest not doing this while working with <code>datetime</code> objects.  The following shows that using the <code>replace</code> method for <code>datetime</code> objects has unpredictable behavior. The conversion from nyc to utc worked well but converting back did not. Again, I always work in epoch time in order to avoid this. (Note: apparently other packages like pendulum and django do not have this problem so feel free to explore those.)</p>
+<h3 id="Converting-tz-information">Converting tz information<a class="anchor-link" href="#Converting-tz-information"> </a></h3><p>I suggest not doing this while working with <code>datetime</code> objects.  The following shows that using the <code>replace</code> method for <code>datetime</code> objects has unpredictable behavior. The conversion from nyc to utc worked well but converting back did not. Again, I always work in epoch time in order to avoid this. (Note: apparently other packages like pendulum and django do not have this problem so feel free to explore those.)</p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Converting-from-a-string">Converting from a string<a class="anchor-link" href="#Converting-from-a-string"> </a></h2><p>There are several ways to do this. But the one that I like to use is <code>dateutil.parser</code> which seems to do everything for me behind the scenes.  Yes, it's another datetime package in python (woohoo).</p>
+<h3 id="Converting-from-a-string">Converting from a string<a class="anchor-link" href="#Converting-from-a-string"> </a></h3><p>There are several ways to do this. But the one that I like to use is <code>dateutil.parser</code> which seems to do everything for me behind the scenes.  Yes, it's another datetime package in python (woohoo).</p>
 
 </div>
 </div>
@@ -407,7 +407,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Working-with-datetime-in-pandas">Working with datetime in pandas<a class="anchor-link" href="#Working-with-datetime-in-pandas"> </a></h1><p>Typically, when working with time series data, it will come ina in tabular form.  Let's start by creating a dataframe of 10 minutes of epoch times and some fake data.</p>
+<h2 id="Working-with-datetime-in-pandas">Working with datetime in pandas<a class="anchor-link" href="#Working-with-datetime-in-pandas"> </a></h2><p>Typically, when working with time series data, it will come ina in tabular form.  Let's start by creating a dataframe of 10 minutes of epoch times and some fake data.</p>
 
 </div>
 </div>
@@ -531,7 +531,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Converting-Epoch-time-to-datetime">Converting Epoch time to datetime<a class="anchor-link" href="#Converting-Epoch-time-to-datetime"> </a></h2><p>Pandas has a built in function <code>pd.to_datetime()</code> which accepts a numeric column and outputs a datetime column.  Note that we've specified utc as our desired timezone in order to avoid future confusion.</p>
+<h3 id="Converting-Epoch-time-to-datetime">Converting Epoch time to datetime<a class="anchor-link" href="#Converting-Epoch-time-to-datetime"> </a></h3><p>Pandas has a built in function <code>pd.to_datetime()</code> which accepts a numeric column and outputs a datetime column.  Note that we've specified utc as our desired timezone in order to avoid future confusion.</p>
 
 </div>
 </div>
@@ -741,7 +741,7 @@ utc_aware_dt:  2019-09-13 08:10:25+00:00
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Converting-from-datetime-Column-to-Epoch-Time-Column">Converting from <code>datetime</code> Column to Epoch Time Column<a class="anchor-link" href="#Converting-from-datetime-Column-to-Epoch-Time-Column"> </a></h2><p>So this one is a bit tricky.  The primary function that converts from <code>datetime</code> to epoch time is just to tell pandas that you want to change the type of the column to <code>int</code>.  However, this returns nanoseconds so we need to then account for that by dividing by 1e-9 (which in turn pandas converts to a <code>float</code> and then displays with scientific notation). Thus, if you're ultimate goal is a column with type <code>int</code> of seconds, you would need to cast it back to <code>int</code> again after this rescaling.</p>
+<h3 id="Converting-from-datetime-Column-to-Epoch-Time-Column">Converting from <code>datetime</code> Column to Epoch Time Column<a class="anchor-link" href="#Converting-from-datetime-Column-to-Epoch-Time-Column"> </a></h3><p>So this one is a bit tricky.  The primary function that converts from <code>datetime</code> to epoch time is just to tell pandas that you want to change the type of the column to <code>int</code>.  However, this returns nanoseconds so we need to then account for that by dividing by 1e-9 (which in turn pandas converts to a <code>float</code> and then displays with scientific notation). Thus, if you're ultimate goal is a column with type <code>int</code> of seconds, you would need to cast it back to <code>int</code> again after this rescaling.</p>
 
 </div>
 </div>
