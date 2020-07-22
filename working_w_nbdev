@@ -1,0 +1,10 @@
+Scratch notes for how to work with nbdev
+
+turning notebooks into docs
+- put them in the /nbs folder (I changed the settings.ini) to make that so
+- set github pages to look into the docs folder of master branch
+- run cli: nbdev_build_docs which will build all the docs in the nb folder
+
+changing settings
+- typically this can be done through settings.ini
+- use nbdev_build_lib in terminal if you change something in that file (say the github repo url)
