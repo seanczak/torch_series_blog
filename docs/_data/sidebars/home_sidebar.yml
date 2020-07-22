@@ -13,7 +13,7 @@ entries:
       title: Hello function
       url: /hello
     - output: web,pdf
-      title: Title
+      title: Combatting the Datetime Blues in Python
       url: /dealing_with_datetime
     - output: web,pdf
       title: practice doc

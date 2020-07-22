@@ -1,12 +1,12 @@
 ---
 
-title: Title
+title: Combatting the Datetime Blues in Python
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
-description: "summary"
+summary: "Opinionated wrangling of datetime objects"
+description: "Opinionated wrangling of datetime objects"
 ---
 <!--
 
@@ -29,7 +29,7 @@ description: "summary"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Combatting-the-Datetime-Blues-in-Python">Combatting the Datetime Blues in Python<a class="anchor-link" href="#Combatting-the-Datetime-Blues-in-Python"> </a></h1><p>At some point in their careers, all data scientists have suffered from a case of what I like to call "The Datetime Blues."  They come when you least expect. You've worked hard to scrape data from somewhere or query it from some loosely maintained internal database and you feel ready to go. You're super excited to dig into the data, start making some visualizations, forming/testing hypotheses, and get some quick results back to your stakeholders about a project's scope.  However, after importing the data you realize its stored in one of the time formats that you're not 100% familiar with. Ok fine, a quick stackoverflow search and the dataset is ready...right?  Well, not exactly. You then realize that all your metadata is a different time format. Ok, a few more stackoverflow searches and you're up and running again.  "WHAT NO?! Why did this python package add an extra 56 minutes when converting from local time to UTC?!?"  Yes my friend, you have a case of the datetime blues.</p>
+<p>At some point in their careers, all data scientists have suffered from a case of what I like to call "The Datetime Blues."  They come when you least expect. You've worked hard to scrape data from somewhere or query it from some loosely maintained internal database and you feel ready to go. You're super excited to dig into the data, start making some visualizations, forming/testing hypotheses, and get some quick results back to your stakeholders about a project's scope.  However, after importing the data you realize its stored in one of the time formats that you're not 100% familiar with. Ok fine, a quick stackoverflow search and the dataset is ready...right?  Well, not exactly. You then realize that all your metadata is a different time format. Ok, a few more stackoverflow searches and you're up and running again.  "WHAT NO?! Why did this python package add an extra 56 minutes when converting from local time to UTC?!?"  Yes my friend, you have a case of the datetime blues.</p>
 <p>Fortunately this only occurs every so often in my work. But it happens just frequently enough to be annoying and just infrequently enough that I forget all the stackoverflow insights I learned the last time I dealt with the problems.  Thus, for my own sake if not yours, I want to put in writing some of the little hiccups and solutions I've come across while working with datetime objects in python and pandas.  I'll probably be adding to this piece so please provide any feedback in the comments. :)</p>
 
 </div>

@@ -2,7 +2,7 @@
   "torch_series_blog": {
     "Overview": "/",
     "Hello function": "/hello",
-    "Title": "/dealing_with_datetime",
+    "Combatting the Datetime Blues in Python": "/dealing_with_datetime",
     "practice doc": "/practice"
   }
 }
