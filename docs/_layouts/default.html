@@ -98,10 +98,24 @@
         </div>
     <!-- /.row -->
 </div>
+
+    <!-- sean: insert replybox here-->
+    <div id="replybox"></div>
+
+
 <!-- /.container -->
 </div>
 <!-- /#main -->
     </div>
+
+    <!-- sean: run reply box (this needs to be anywhere in the body 
+        and then the above goes where you want the comments to be-->
+	<script>
+        window.replybox = {
+            site: 'aEjB4KMnMr', 
+        };
+        </script>
+        <script src="https://cdn.getreplybox.com/js/embed.js"></script>
 
 </body>
 {% if site.google_analytics %}
