@@ -16,6 +16,9 @@ entries:
       title: Combatting the Datetime Blues in Python
       url: /dealing_with_datetime
     - output: web,pdf
+      title: What in the World Happened in Virginia Tuesday Night?!
+      url: /election
+    - output: web,pdf
       title: practice doc
       url: /practice
     output: web
