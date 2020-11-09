@@ -17,7 +17,16 @@ entries:
       url: /dealing_with_datetime
     - output: web,pdf
       title: What in the World Happened in Virginia Tuesday Night?!
-      url: /election
+      url: /election2020.virginia
+    - output: web,pdf
+      title: 'Calling Elections Early: Fake News or Statistics?'
+      url: /election2020.illinois
+    - output: web,pdf
+      title: What Took So Long in the Swing States?
+      url: /election2020.penn
+    - output: web,pdf
+      title: How Swing-able is Texas Anyways?
+      url: /election2020.texas
     - output: web,pdf
       title: practice doc
       url: /practice
