@@ -5,8 +5,8 @@ title: Calling Elections Early: Fake News or Statistics?
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "A high-level, accessible walk through of the inference engine behind calling elections"
-description: "A high-level, accessible walk through of the inference engine behind calling elections"
+
+
 ---
 <!--
 
@@ -27,6 +27,25 @@ description: "A high-level, accessible walk through of the inference engine behi
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>A high-level, accessible walk through of the inference engine behind calling elections</p>
+</blockquote>
+<p>At 8:40pm EST, most major news stations had called Illinios for Biden even though state officials had only reported about 500,000 votes. This was only an estimated 6% of the votes!  How can a candidate win so early? Is this some sort of fake news/voter suppression?
+Well... it turns out that they were right so let's see if we can unpack the magic behind the statistics that they used to infer these results days before the final votes were counted (they are still counting at writing of this article).</p>
+<p>What I imagine happened here is a simple risk analysis coupled with the all-American drive to be FIRST.</p>
+<p>On the one hand, it seems reasonable that at a certain point, we pretty much "know" who won, right?  On the other, you don't want to be wrong about something like that.  These news sources are constantly competing for our eyeballs (and trust). Being first and not being wrong becomes a balancing act.  Imagine how many hits the first 10 sentence article got when Michigan was called (translation: <code>$$$$</code>).</p>
+<p>Better call in those weirdos who enjoy doing math. See if they can sort this out...</p>
+<p>Follow me on this journey as we attempt to answer:</p>
+<ul>
+<li>How you can call an election with less than 10% of the vote?</li>
+</ul>
+<p>Accessibility note:</p>
+<p>This is the most mathematically rigorous case study I have but it's the foundation for the rest of the series. There are numbers and figures included below...it would hardly be a statistics explanation if there weren't. However, I recognize that I'm writing for a general audience so I do my best to remain accessible and hopefully demonstrate how simple and powerful the fundamentals of statistics actually are.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Step-1:-Marbles">Step 1: Marbles<a class="anchor-link" href="#Step-1:-Marbles"> </a></h2><p>I am not privy to the information that they are using to make these calls but I can show you something that I find kind of cool which at least explains what I believe is going on behind the scenes (if not a significantly more complex version).</p>
@@ -56,7 +75,7 @@ description: "A high-level, accessible walk through of the inference engine behi
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Luckily, the humans are smart. They also realize that they have a high probability of getting the answer wrong if they only grab 100 marbles. So they quickly increase their number to 1000 marbles.  Before telling you what they saw, lets first try to make a guess.  A visual way to approach this would be to make the same graph as above (draw n = 1000 marbles from the bag a million times and plot the results) and see what that tells us.</p>
+<p>Luckily, the humans are smart. They also realize that they have a high probability of getting the answer wrong if they only grab 100 marbles. So they quickly increase their number to 1000 marbles.  Before telling you what they saw, lets first try to make a guess.  A visual way to approach this would be to make the same graph as above (draw $n$ = 1000 marbles from the bag a million times and plot the results) and see what that tells us.</p>
 
 </div>
 </div>
