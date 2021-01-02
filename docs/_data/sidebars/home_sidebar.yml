@@ -20,7 +20,7 @@ entries:
       url: /election2020.virginia
     - output: web,pdf
       title: Title
-      url: /election2020.illinois
+      url: /how_long_til_retire
     - output: web,pdf
       title: What Took So Long in the Swing States?
       url: /election2020.penn
