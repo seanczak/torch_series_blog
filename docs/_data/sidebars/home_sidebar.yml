@@ -28,6 +28,9 @@ entries:
       title: How Swing-able is Texas Anyways?
       url: /election2020.texas
     - output: web,pdf
+      title: An Approximation for Financial Independence
+      url: /MMM_4percentRule
+    - output: web,pdf
       title: practice doc
       url: /practice
     output: web
